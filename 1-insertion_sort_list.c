@@ -6,30 +6,37 @@
  * @list: pointer pointer to the dlist to sort
  *
  * Return: Nothing
- * Decription:
- * For pointer Is headode AND pointer next node Is Not Null
- * ****current_node = pointer
- * ****position_node = pointer
- * ****While position_node pointer to int > current_node pointer to int
- * *********position_node = position_node pointer to prev
- * ****swap
- * UNTIL pointer to Next Is Null
  */
+
 void insertion_sort_list(listint_t **list)
 {
-	listint_t *pointer, *pos_node, *temp;
+	listint_t *curr = NULL;
+	listint_t *temp = NULL;
 
-	if (!list || !(*list) || (*list)->next == NULL)
+	if (list == NULL || *list == NULL || (*list)->next == NULL)
 		return;
-	
-	for (pointer = (*list)->next; pointer; pointer = temp)
-	{
-		temp = pointer->next;
-		pos_node = pointer->prev;
-		while (pointer && pointer->n < pos_node->n)
-		{
-			printf("%d\n", pointer->n);
-		}
-	}
+	curr = *list;
+	curr = curr->next;
 
+	while (curr)
+	{
+		while (curr->prev && curr->n < (curr->prev)->n)
+		{
+			temp = curr;
+			if (curr->next)
+				(curr->next)->prev = temp->prev;
+			(curr->prev)->next = temp->next;
+			curr = curr->prev;
+			temp->prev = curr->prev;
+			temp->next = curr;
+			if (curr->prev)
+				(curr->prev)->next = temp;
+			curr->prev = temp;
+			if (temp->prev == NULL)
+				*list = temp;
+			print_list(*list);
+			curr = curr->prev;
+		}
+		curr = curr->next;
+	}
 }
