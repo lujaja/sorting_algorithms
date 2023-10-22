@@ -1,4 +1,4 @@
-   # COLLABORATORS
+# COLLABORATORS
 # LUJAJA LUVUGA [jarzcyber@gmail.com] <kenyan>
 # EDITH BANDA                         <Malawian>
 
