@@ -23,14 +23,11 @@
  */
 void bubble_sort(int *array, size_t size)
 {
-	size_t ipass;
-	size_t i;
-	size_t swapped;
+	size_t ipass, i, swapped;
 	int temp;
 
 	if (size < 2)
 		return;
-
 	for (ipass = 0; ipass < (size - 1); ipass++)
 	{
 		swapped = 0;
