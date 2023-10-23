@@ -4,6 +4,8 @@
  * selection_sort - Sorts an array of integers in ascending order.
  * @array: The array to be sorted.
  * @size: The size of the array.
+ *
+ * Return: nothing
  */
 
 void selection_sort(int *array, size_t size)
@@ -27,7 +29,7 @@ void selection_sort(int *array, size_t size)
 			temp = array[i];
 			array[i] = array[index];
 			array[index] = temp;
-			print_array(array, size);
+			print_array((const int *)array, size);
 		}
 	}
 }
