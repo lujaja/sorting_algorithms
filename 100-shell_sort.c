@@ -1,6 +1,41 @@
 #include "sort.h"
 
 /**
+ * _swap - Swap two numbers.
+ * @n1: first integer.
+ * @n2: Second integer.
+ */
+
+void _swap(int *n1, int *n2)
+{
+	int new;
+
+	new = *n1;
+	*n1 = *n2;
+	*n2 = new;
+}
+
+/**
+ * backward_insertion - Swaps two nodes in the right left position.
+ * @array: The array.
+ * @gap: Gap.
+ * @index: actual position in the array.
+ */
+
+void backward_insertion(int *array, int gap, int index)
+{
+	int i;
+
+	for (i = index - gap; i >= 0; i -= gap, index -= gap)
+	{
+		if (array[i] > array[index])
+			_swap(&array[i], &array[index]);
+		else
+			break;
+	}
+}
+
+/**
  * shell_sort - sort arrays of integrs in ascending order
  * @array: array to sort
  * @size: size of the array
@@ -9,25 +44,26 @@
  */
 void shell_sort(int *array, size_t size)
 {
-	int i, j, gap, tmp;
-	size_t n = size;
+	size_t gap = 1;
+	size_t i, j;
 
-	gap = 1;
-
-	while (gap <= n / 3)
+	if (array == NULL)
+		return;
+	if (size < 2)
+		return;
+	while (gap < size / 3)
 		gap = gap * 3 + 1;
-
-	for (; gap > 0; gap /= 3)
+	while (gap > 0)
 	{
-		for (i = gap; i < n; i++)
+		for (i = 0, j = gap; j < size; i++, j++)
 		{
-			tmp = array[i];
-			for (j = i; j >= gap && array[j - gap] > tmp; j -= gap)
+			if (array[i] > array[j])
 			{
-				array[j] = array[j - gap]
+				_swap(&array[i], &array[j]);
+				backward_insertion(array, gap, i);
 			}
-			array[j] = tmp;
 		}
 		print_array(array, size);
+		gap /= 3;
 	}
 }
