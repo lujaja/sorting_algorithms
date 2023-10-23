@@ -4,7 +4,7 @@
  * bubble_sort - sorts an array of integers in ascending order
  * using the bubble sort algorith.
  * @size: size of the array to sort
- *
+ * @array: The array
  * Return: Nothing
  * Description: Pseudocode
  * *****For ipass = 0, ipass < (length(Array) - 1), i++)

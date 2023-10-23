@@ -2,8 +2,8 @@
 #define SORT_H
 /******************************************************
  * Collaborators:                                     *
- * 	Lujaja Luvuga <jarzcyber@gmail.com> [Kenyan]  *
- * 	Edith Banda                         [Malawian *
+ * Lujaja Luvuga <jarzcyber@gmail.com> [Kenyan]  *
+ * Edith Banda <edithbanda014@gmail.com>[Malawian] *
  * ****************************************************/
 
 /***********************************
