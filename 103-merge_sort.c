@@ -19,7 +19,7 @@ void merge_sort(int *array, size_t size)
 		return;
 	for (; j < size; j++)
 		copy[j] = array[j];
-	merge_recursive(array, copy, 0, size - 1);
+	merge_recursive(array, copy, 0, size);
 	free(copy);
 }
 
@@ -72,13 +72,14 @@ void merge_array(int *array, int *copy, size_t start, size_t mid, size_t end)
 void merge_recursive(int *array, int *copy, size_t start, size_t end)
 {
 	size_t mid = 0;
+	size_t i;
 
 	if (end - start < 2)
 		return;
-	mid = (low + high) / 2;
-	merge_recusrive(start, mid, array, base);
-	merge_recursive(mid, end, array, copy);
-	merge_array(start, mid, end, array, copy);
-	for (mid = start; mid < end; mid++)
-		copy[mid] = array[mid];
+	mid = (start + end) / 2;
+	merge_recursive(array, copy, start, mid);
+	merge_recursive(array, copy, mid, end);
+	merge_array(array, copy, start, mid, end);
+	for (i = start; i < end; i++)
+		copy[i] = array[i];
 }
