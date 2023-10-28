@@ -58,6 +58,7 @@ void bitonic_sort(int *array, size_t size);
 void quick_sort_hoare(int *array, size_t size);
 void merge_recursive(int *array, int *copy, size_t start, size_t end);
 void merge_array(int *array, int *copy, size_t start, size_t mid, size_t end);
+void swap_root_node(int * array, size_t root, size_t high, size_t size);
 
 /******************
  * Swap operation *
